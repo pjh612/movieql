@@ -2,13 +2,13 @@ import fetch from "node-fetch";
 const API_URL = "https://yts.am/api/v2/list_movies.json?";
 
 export const getSuggestions = async (id) => {
-  const movie = await fetch(
+  const movies = await fetch(
     `https://yts.mx/api/v2/movie_suggestions.json?movie_id=${id}`
   )
     .then((res) => res.json())
-    .then((json) => json.data.movie);
+    .then((json) => json.data.movies);
 
-  return movie;
+  return movies;
 };
 
 export const getMovie = async (id) => {
